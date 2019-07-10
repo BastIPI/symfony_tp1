@@ -47,6 +47,16 @@ class Product
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $like_count;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $dislike_count;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -132,6 +142,30 @@ class Product
     public function setImage($image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getLikeCount(): ?int
+    {
+        return $this->like_count;
+    }
+
+    public function setLikeCount(?int $like_count): self
+    {
+        $this->like_count = $like_count;
+
+        return $this;
+    }
+
+    public function getDislikeCount(): ?int
+    {
+        return $this->dislike_count;
+    }
+
+    public function setDislikeCount(?int $dislike_count): self
+    {
+        $this->dislike_count = $dislike_count;
 
         return $this;
     }

@@ -35,6 +35,8 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $product->setLikeCount(0);
+            $product->setDislikeCount(0);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();
@@ -75,6 +77,36 @@ class ProductController extends AbstractController
         return $this->render('product/edit.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/like", name="product_like", methods={"GET"})
+     */
+    public function like(Request $request, Product $product): Response
+    {
+        $product->setLikeCount($product->getLikeCount() + 1);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($product);
+        $entityManager->flush();
+        
+        return $this->render('product/show.html.twig', [
+            'product' => $product,
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/dislike", name="product_dislike", methods={"GET"})
+     */
+    public function dislike(Request $request, Product $product): Response
+    {
+        $product->setDislikeCount($product->getDislikeCount() + 1);
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($product);
+        $entityManager->flush();
+        
+        return $this->render('product/show.html.twig', [
+            'product' => $product,
         ]);
     }
 
