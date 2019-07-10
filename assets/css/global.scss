@@ -1,7 +1,6 @@
 // assets/css/global.scss
 
 // customize some Bootstrap variables
-$primary: darken(#428bca, 20%);
 
 // the ~ allows you to reference things in node_modules
 @import "~bootstrap/scss/bootstrap";
@@ -11,11 +10,9 @@ $primary: darken(#428bca, 20%);
 @import '~@fortawesome/fontawesome-free/scss/brands';
 
 body {
-    background-color: rgb(94, 91, 91);
-}
-.footer{
-    color: rgb(146, 146, 146);
-    position: absolute; bottom: 0;
+    background-color: rgb(192, 192, 192);
+    color:#565254;
+    padding:0 50px;
 }
 .header{
     text-align: center;
@@ -28,7 +25,7 @@ body {
 }
 .bouton{
     text-align: center;
-    margin-top:10em;
+    //margin-top:10em;
 }
 .itemMenu{
     list-style:none;

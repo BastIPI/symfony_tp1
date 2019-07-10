@@ -1,8 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
-{% block title %}Product{% endblock %}
-
-{% block body %}
+{% block content %}
     <h1>Détail du produit</h1>
 
     <div class="container-fluid">
@@ -43,6 +41,6 @@
         </div>
     </div>
 
-    <a href="{{ path('product_index') }}">back to list</a>
+    <a href="{{ path('product_index') }}">Retour</a>
 
 {% endblock %}
