@@ -8,18 +8,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/default", name="default")
+     * @Route("/", name="index")
      */
     public function index()
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/DefaultController.php',
-        ]);
+
+        //ici on va chercher le template et on lui transmet la variable
+        return $this->render('layout.html.twig', [
+            // pour fournir des variables au template
+            // a gauche, le nom qui sera utilisé dans le template
+            // a droite, la valeur
+       ]);
     }
 
     /**
-     * @Route("/lucky/number/{max}", name="default")
+     * @Route("/lucky/number/{max}", name="number")
      *
      */
     public function numberAction($max)

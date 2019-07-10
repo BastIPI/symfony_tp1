@@ -7,5 +7,75 @@ $primary: darken(#428bca, 20%);
 @import "~bootstrap/scss/bootstrap";
 
 body {
-    background-color: lightgray;
+    background-color: rgb(94, 91, 91);
 }
+.footer{
+    color: rgb(146, 146, 146);
+    position: absolute; bottom: 0;
+}
+.header{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+.itemFooter{
+    padding-left:20px;
+    padding-right:20px;
+}
+.bouton{
+    text-align: center;
+    margin-top:10em;
+}
+.itemMenu{
+    list-style:none;
+    display: inline-block;
+    position: relative;
+    padding: 0.5em 1.4em;
+    text-decoration: none;
+    background: #ffffff;/*Button Color*/
+    color: rgb(0, 0, 0);
+    border-bottom: solid 5px #a2a2a3;/*daker than background*/
+    border-right: solid 5px #c4c4c4;/*darker than background*/
+    width: 300px;
+    height: 80px;
+    font-size: 30px;
+}
+    
+.itemMenu:before{    
+    content: " ";
+    position: absolute;
+    bottom: -5px;
+    left: -1px;
+    width: 0;
+    height: 0;
+    border-width: 0 6px 6px 0px;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-color: rgb(94, 91, 91);
+}
+    
+.itemMenu:after{   
+    content: " ";
+    position: absolute;
+    top: -1px;
+    right: -5px;
+    width: 0;
+    height: 0;
+    border-width: 0px 6px 6px 0px;
+    border-style: solid;
+    border-color: rgb(94, 91, 91);
+    border-bottom-color: transparent;
+}
+    
+.itemMenu:active{ /*on click*/
+    border:none;
+    -ms-transform: translate(6px,6px);
+    -webkit-transform: translate(6px,6px);
+    transform: translate(6px,6px);/*move LowerRight*/
+}
+    
+.itemMenu:active:after,
+.itemMenu:active:before {/*on click*/
+    content: none;/*Border disappears*/
+}
+
